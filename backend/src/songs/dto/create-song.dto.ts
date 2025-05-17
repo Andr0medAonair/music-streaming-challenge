@@ -7,6 +7,7 @@ import {
   IsNumber,
 } from 'class-validator';
 import { Album } from 'src/albums/entities/album.entity';
+import { Artist } from 'src/artists/entities/artist.entity';
 
 export class CreateSongDto {
   @IsString({ message: 'Song title must be a string' })
@@ -17,7 +18,7 @@ export class CreateSongDto {
   @IsString({ message: 'Artist id must be a string' })
   @IsNotEmpty({ message: 'Artist id cannot be empty' })
   @ApiProperty()
-  artist: string;
+  artist: Artist;
 
   @IsString({ message: 'Cover URL must be a string' })
   @IsNotEmpty({ message: 'Album cannot be empty' })
