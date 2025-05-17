@@ -9,8 +9,7 @@ export class AlbumsService {
     return {
       id: '1',
       name: 'Midnight Melodies',
-      artistId: '101',
-      artistName: 'Luna Ray',
+      artist: 'Luna Ray',
       coverUrl: 'https://example.com/covers/midnight-melodies.jpg',
       releaseDate: new Date('2023-11-10'),
       genre: 'Ambient',
@@ -24,8 +23,7 @@ export class AlbumsService {
       {
         id: '1',
         name: 'Midnight Melodies',
-        artistId: '101',
-        artistName: 'Luna Ray',
+        artist: 'Luna Ray',
         coverUrl: 'https://example.com/covers/midnight-melodies.jpg',
         releaseDate: new Date('2023-11-10'),
         genre: 'Ambient',
@@ -35,8 +33,7 @@ export class AlbumsService {
       {
         id: '2',
         name: 'Echoes of Summer',
-        artistId: '102',
-        artistName: 'The Sunshades',
+        artist: 'The Sunshades',
         coverUrl: 'https://example.com/covers/echoes-of-summer.jpg',
         releaseDate: new Date('2022-06-15'),
         genre: 'Indie Rock',
@@ -46,8 +43,7 @@ export class AlbumsService {
       {
         id: '3',
         name: 'Digital Dreams',
-        artistId: '103',
-        artistName: 'SynthNova',
+        artist: 'SynthNova',
         coverUrl: 'https://example.com/covers/digital-dreams.jpg',
         releaseDate: new Date('2024-03-01'),
         genre: 'Synthwave',
@@ -61,8 +57,7 @@ export class AlbumsService {
     return {
       id: '1',
       name: 'Midnight Melodies',
-      artistId: '101',
-      artistName: 'Luna Ray',
+      artist: 'Luna Ray',
       coverUrl: 'https://example.com/covers/midnight-melodies.jpg',
       releaseDate: new Date('2023-11-10'),
       genre: 'Ambient',
@@ -75,8 +70,7 @@ export class AlbumsService {
     return {
       id: '1',
       name: 'Melodies',
-      artistId: '101',
-      artistName: 'Luna Ray',
+      artist: 'Luna Ray',
       coverUrl: 'https://example.com/covers/midnight-melodies.jpg',
       releaseDate: new Date('2023-11-10'),
       genre: 'Ambient',
