@@ -4,6 +4,8 @@ export class Album {
   artistId: string;
   artistName?: string;
   coverUrl?: string;
-  releaseDate?: string;
+  releaseDate?: Date;
   genre?: string;
+  createdAt: Date;
+  updatedAt: Date;
 }

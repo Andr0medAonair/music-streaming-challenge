@@ -12,8 +12,10 @@ export class AlbumsService {
       artistId: '101',
       artistName: 'Luna Ray',
       coverUrl: 'https://example.com/covers/midnight-melodies.jpg',
-      releaseDate: '2023-11-10',
+      releaseDate: new Date('2023-11-10'),
       genre: 'Ambient',
+      createdAt: new Date('2023-11-10'),
+      updatedAt: new Date('2023-11-10'),
     };
   }
 
@@ -25,8 +27,10 @@ export class AlbumsService {
         artistId: '101',
         artistName: 'Luna Ray',
         coverUrl: 'https://example.com/covers/midnight-melodies.jpg',
-        releaseDate: '2023-11-10',
+        releaseDate: new Date('2023-11-10'),
         genre: 'Ambient',
+        createdAt: new Date('2023-11-10'),
+        updatedAt: new Date('2023-11-10'),
       },
       {
         id: '2',
@@ -34,8 +38,10 @@ export class AlbumsService {
         artistId: '102',
         artistName: 'The Sunshades',
         coverUrl: 'https://example.com/covers/echoes-of-summer.jpg',
-        releaseDate: '2022-06-15',
+        releaseDate: new Date('2022-06-15'),
         genre: 'Indie Rock',
+        createdAt: new Date('2023-11-10'),
+        updatedAt: new Date('2023-11-10'),
       },
       {
         id: '3',
@@ -43,8 +49,10 @@ export class AlbumsService {
         artistId: '103',
         artistName: 'SynthNova',
         coverUrl: 'https://example.com/covers/digital-dreams.jpg',
-        releaseDate: '2024-03-01',
+        releaseDate: new Date('2024-03-01'),
         genre: 'Synthwave',
+        createdAt: new Date('2023-11-10'),
+        updatedAt: new Date('2023-11-10'),
       },
     ];
   }
@@ -56,8 +64,10 @@ export class AlbumsService {
       artistId: '101',
       artistName: 'Luna Ray',
       coverUrl: 'https://example.com/covers/midnight-melodies.jpg',
-      releaseDate: '2023-11-10',
+      releaseDate: new Date('2023-11-10'),
       genre: 'Ambient',
+      createdAt: new Date('2023-11-10'),
+      updatedAt: new Date('2023-11-10'),
     };
   }
 
@@ -68,8 +78,10 @@ export class AlbumsService {
       artistId: '101',
       artistName: 'Luna Ray',
       coverUrl: 'https://example.com/covers/midnight-melodies.jpg',
-      releaseDate: '2023-11-10',
+      releaseDate: new Date('2023-11-10'),
       genre: 'Ambient',
+      createdAt: new Date('2023-11-10'),
+      updatedAt: new Date('2023-11-10'),
     };
   }
 

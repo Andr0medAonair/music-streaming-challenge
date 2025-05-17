@@ -1,13 +1,7 @@
-import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
-import { IsString, IsNotEmpty, IsUUID, IsOptional } from "class-validator";
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { IsString, IsNotEmpty, IsUUID, IsOptional, IsDate } from 'class-validator';
 
 export class CreateAlbumDto {
-  @IsString({ message: 'Album ID must be a string' })
-  @IsNotEmpty({ message: 'Album ID cannot be empty' })
-  @IsUUID('4', { message: 'Album ID must be a valid UUID' })
-  @ApiProperty()
-  id: string;
-
   @IsString({ message: 'Album name must be a string' })
   @IsNotEmpty({ message: 'Album name cannot be empty' })
   @ApiProperty()
@@ -30,7 +24,7 @@ export class CreateAlbumDto {
   coverUrl?: string;
 
   @IsOptional()
-  @IsString({ message: 'Release date must be a string' })
+  @IsDate({ message: 'Release date must be a date' })
   @ApiPropertyOptional()
   releaseDate?: string;
 
@@ -39,4 +33,3 @@ export class CreateAlbumDto {
   @ApiPropertyOptional()
   genre?: string;
 }
-

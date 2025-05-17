@@ -17,8 +17,14 @@ export class AlbumResponse {
   coverUrl?: string;
 
   @ApiPropertyOptional()
-  releaseDate?: string;
+  releaseDate?: Date;
 
   @ApiPropertyOptional()
   genre?: string;
+
+  @ApiProperty()
+  createdAt: Date;
+
+  @ApiProperty()
+  updatedAt: Date;
 }
