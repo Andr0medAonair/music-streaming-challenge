@@ -10,12 +10,39 @@ datasource db {
 
 model Album {
   id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  name       String
-  artist    String
-  songs  String?
+  name        String
+  artistId    String
+  artist      Artist   @relation(fields: [artistId], references: [id])
+  songs       Song[] // One album can have many songs
   coverUrl    String?
   releaseDate String
   genre       String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+}
+
+model Artist {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name      String
+  albums    Album[]
+  songs     Song[]
+  photoUrl  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Song {
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title         String
+  artistId      String
+  artist        Artist   @relation(fields: [artistId], references: [id])
+  albumId       String
+  album         Album    @relation(fields: [albumId], references: [id])
+  duration      Int
+  releaseDate   DateTime
+  genre         String?
+  coverImageUrl String?
+  audioUrl      String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }
