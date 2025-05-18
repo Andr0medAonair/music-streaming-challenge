@@ -3,7 +3,6 @@ import { Type } from 'class-transformer';
 import {
   IsString,
   IsNotEmpty,
-  IsUUID,
   IsOptional,
   IsDate,
   IsObject,

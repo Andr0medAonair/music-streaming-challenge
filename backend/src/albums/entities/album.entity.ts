@@ -1,5 +1,5 @@
-import { Artist } from "src/artists/entities/artist.entity";
-import { Song } from "src/songs/entities/song.entity";
+import { Artist } from 'src/artists/entities/artist.entity';
+import { Song } from 'src/songs/entities/song.entity';
 
 export class Album {
   id: string;
