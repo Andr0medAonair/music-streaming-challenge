@@ -1,8 +1,8 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { SongResponse } from './SongResponse';
-import { ArtistResponse } from './ArtistResponse';
+import { AlbumResponse } from './AlbumResponse';
 
-export class AlbumResponse {
+export class ArtistResponse {
   @ApiProperty()
   id: string;
 
@@ -10,22 +10,13 @@ export class AlbumResponse {
   name: string;
 
   @ApiProperty()
-  artistId: string;
-
-  @ApiProperty()
-  artist: ArtistResponse;
+  albums: AlbumResponse[];
 
   @ApiProperty()
   songs: SongResponse[];
 
   @ApiPropertyOptional()
-  coverUrl?: string;
-
-  @ApiProperty()
-  releaseDate: Date;
-
-  @ApiPropertyOptional()
-  genre?: string;
+  photoUrl?: string;
 
   @ApiProperty()
   createdAt: Date;
