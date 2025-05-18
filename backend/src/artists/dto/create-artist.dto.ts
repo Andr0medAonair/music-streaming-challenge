@@ -1,6 +1,15 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsString, IsNotEmpty, IsOptional } from 'class-validator';
+import { Type } from 'class-transformer';
+import {
+  IsString,
+  IsNotEmpty,
+  IsOptional,
+  IsArray,
+  ValidateNested,
+} from 'class-validator';
+import { CreateAlbumDto } from 'src/albums/dto/create-album.dto';
 import { Album } from 'src/albums/entities/album.entity';
+import { CreateSongDto } from 'src/songs/dto/create-song.dto';
 import { Song } from 'src/songs/entities/song.entity';
 
 export class CreateArtistDto {
@@ -9,14 +18,16 @@ export class CreateArtistDto {
   @ApiProperty()
   name: string;
 
-  @IsString({ message: 'Artist id must be a string' })
-  @IsNotEmpty({ message: 'Artist id cannot be empty' })
-  @ApiProperty()
+  @ApiProperty({ isArray: true, type: CreateSongDto })
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => CreateSongDto)
   songs: Song[];
 
-  @IsString({ message: 'Cover URL must be a string' })
-  @IsNotEmpty({ message: 'Album cannot be empty' })
-  @ApiProperty()
+  @ApiProperty({ isArray: true, type: CreateAlbumDto })
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => CreateAlbumDto)
   albums: Album[];
 
   @IsOptional()

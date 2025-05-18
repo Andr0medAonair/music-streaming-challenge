@@ -1,26 +1,33 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { AlbumResponse } from './AlbumResponse';
 
-export class AlbumResponse {
+export class SongResponse {
   @ApiProperty()
   id: string;
 
   @ApiProperty()
-  name: string;
+  title: string;
 
   @ApiProperty()
-  artistId: string;
-
-  @ApiPropertyOptional()
-  artistName?: string;
-
-  @ApiPropertyOptional()
-  coverUrl?: string;
+  artist: string;
 
   @ApiProperty()
+  album: AlbumResponse;
+
+  @ApiPropertyOptional()
+  duration: number;
+
+  @ApiPropertyOptional()
   releaseDate: Date;
 
   @ApiPropertyOptional()
   genre?: string;
+
+  @ApiPropertyOptional()
+  coverImageUrl?: string;
+
+  @ApiProperty()
+  audioUrl: string;
 
   @ApiProperty()
   createdAt: Date;

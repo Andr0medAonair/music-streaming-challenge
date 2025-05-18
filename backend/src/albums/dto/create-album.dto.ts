@@ -1,5 +1,19 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsString, IsNotEmpty, IsUUID, IsOptional, IsDate } from 'class-validator';
+import { Type } from 'class-transformer';
+import {
+  IsString,
+  IsNotEmpty,
+  IsUUID,
+  IsOptional,
+  IsDate,
+  IsObject,
+  IsArray,
+  ValidateNested,
+} from 'class-validator';
+import { CreateArtistDto } from 'src/artists/dto/create-artist.dto';
+import { Artist } from 'src/artists/entities/artist.entity';
+import { CreateSongDto } from 'src/songs/dto/create-song.dto';
+import { Song } from 'src/songs/entities/song.entity';
 
 export class CreateAlbumDto {
   @IsString({ message: 'Album name must be a string' })
@@ -7,26 +21,26 @@ export class CreateAlbumDto {
   @ApiProperty()
   name: string;
 
-  @IsString({ message: 'Artist id must be a string' })
-  @IsNotEmpty({ message: 'Artist id cannot be empty' })
-  @IsUUID('4', { message: 'Artist id must be a valid UUID' })
-  @ApiProperty()
-  artistId: string;
+  @ApiProperty({ type: CreateArtistDto })
+  @IsObject()
+  @IsNotEmpty({ message: 'Artist cannot be empty' })
+  artist: Artist;
 
-  @IsOptional()
-  @IsString({ message: 'Artist name must be a string' })
-  @ApiPropertyOptional()
-  artistName?: string;
+  @ApiProperty({ isArray: true, type: CreateSongDto })
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => CreateSongDto)
+  songs: Song[];
 
   @IsOptional()
   @IsString({ message: 'Cover URL must be a string' })
-  @ApiPropertyOptional()
+  @ApiProperty()
   coverUrl?: string;
 
-  @IsOptional()
+  @IsNotEmpty({ message: 'Release date cannot be empty' })
   @IsDate({ message: 'Release date must be a date' })
-  @ApiPropertyOptional()
-  releaseDate?: string;
+  @ApiProperty()
+  releaseDate: Date;
 
   @IsOptional()
   @IsString({ message: 'Genre must be a string' })

@@ -10,11 +10,11 @@ datasource db {
 
 model Album {
   id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  title       String
-  artistId    String
-  artistName  String?
+  name       String
+  artist    String
+  songs  String?
   coverUrl    String?
-  releaseDate String?
+  releaseDate String
   genre       String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

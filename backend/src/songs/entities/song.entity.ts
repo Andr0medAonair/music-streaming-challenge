@@ -5,7 +5,7 @@ export class Song {
   album: string;
   duration: number;
   releaseDate: Date;
-  genre: string;
+  genre?: string;
   coverImageUrl?: string;
   audioUrl: string;
   createdAt: Date;

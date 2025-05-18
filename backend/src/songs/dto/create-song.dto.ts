@@ -5,8 +5,11 @@ import {
   IsOptional,
   IsDate,
   IsNumber,
+  IsObject,
 } from 'class-validator';
+import { CreateAlbumDto } from 'src/albums/dto/create-album.dto';
 import { Album } from 'src/albums/entities/album.entity';
+import { CreateArtistDto } from 'src/artists/dto/create-artist.dto';
 import { Artist } from 'src/artists/entities/artist.entity';
 
 export class CreateSongDto {
@@ -15,13 +18,13 @@ export class CreateSongDto {
   @ApiProperty()
   title: string;
 
-  @IsString({ message: 'Artist id must be a string' })
-  @IsNotEmpty({ message: 'Artist id cannot be empty' })
-  @ApiProperty()
+  @ApiProperty({ type: CreateArtistDto })
+  @IsObject()
+  @IsNotEmpty({ message: 'Artist cannot be empty' })
   artist: Artist;
 
-  @IsString({ message: 'Cover URL must be a string' })
-  @IsNotEmpty({ message: 'Album cannot be empty' })
+  @ApiProperty({ type: CreateAlbumDto })
+  @IsObject()
   @ApiProperty()
   album: Album;
 
@@ -45,8 +48,8 @@ export class CreateSongDto {
   @ApiPropertyOptional()
   coverImageUrl?: string;
 
-  @IsOptional()
+  @IsNotEmpty({ message: 'Artist cannot be empty' })
   @IsString({ message: 'Audio url must be a string' })
-  @ApiPropertyOptional()
-  audioUrl?: string;
+  @ApiProperty()
+  audioUrl: string;
 }
